@@ -1,4 +1,4 @@
-package kr.damda.dcm.entity;
+package kr.damda.dcm.iot.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

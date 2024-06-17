@@ -1,7 +1,6 @@
-package kr.damda.dcm.entity;
+package kr.damda.dcm.iot.entity;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 import lombok.Getter;
