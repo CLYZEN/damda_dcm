@@ -15,9 +15,10 @@ import org.springframework.data.annotation.LastModifiedDate;
 public class BaseTimeEntity {
 
     @CreatedDate
-    @Column(updatable = false)
+    @Column(updatable = false, name = "CREATE_TIME", nullable = false)
     private LocalDateTime createTime;
 
     @LastModifiedDate
+    @Column(name = "UPDATE_TIME", nullable = false)
     private LocalDateTime updateTime;
 }

@@ -2,10 +2,16 @@ spring:
   application:
     name: dcm
   datasource:
-    url: jdbc:mariadb://192.168.167.221:3306/iot?serverTimezone=Asi
+    jdbc-url: jdbc:mariadb://192.168.167.221:3306/iot?serverTimezone=Asi
     username: root
     password: root1234
     driver-class-name: org.mariadb.jdbc.Driver
+  second-database:
+    jdbc-url: jdbc:mariadb://192.168.167.221:3306/svc?serverTimezone=Asi
+    username: root
+    password: root1234
+    driver-class-name: org.mariadb.jdbc.Driver
+
   jpa:
     open-in-view: false
     generate-ddl: true
