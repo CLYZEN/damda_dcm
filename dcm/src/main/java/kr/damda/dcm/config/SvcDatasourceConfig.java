@@ -29,14 +29,12 @@ public class SvcDatasourceConfig {
         return em;
     }
 
-
     @Bean
     @ConfigurationProperties(prefix = "spring.svc-datasource")
     public DataSource svcDataSource() {
         return DataSourceBuilder.create().build();
     }
 
-    @Primary
     @Bean
     public PlatformTransactionManager svcTransactionManager() {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
