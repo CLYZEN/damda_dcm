@@ -1,11 +1,12 @@
 package kr.damda.dcm.svc.service;
 
 import java.util.List;
-import kr.damda.dcm.dto.request.RegisterRequestDto;
-import kr.damda.dcm.dto.response.RegisterResponseDto;
-import kr.damda.dcm.dto.response.component.AccountResponseDto;
-import kr.damda.dcm.dto.response.component.ResultResponseDto;
+import kr.damda.dcm.dto.request.svc.RegisterRequestDto;
+import kr.damda.dcm.dto.response.svc.RegisterResponseDto;
+import kr.damda.dcm.dto.response.svc.component.AccountResponseDto;
+import kr.damda.dcm.dto.response.svc.component.ResultResponseDto;
 import kr.damda.dcm.exception.NotFoundException;
+import kr.damda.dcm.service.DeviceService;
 import kr.damda.dcm.svc.entity.SvcDevice;
 import kr.damda.dcm.svc.entity.SvcDeviceMaker;
 import kr.damda.dcm.svc.entity.SvcDeviceModel;
@@ -30,7 +31,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 @Slf4j
 @Transactional("svcTransactionManager")
-public class SvcDeviceServiceImpl implements SvcDeviceService {
+public class SvcDeviceServiceImpl implements DeviceService {
 
     private final SvcGroupDeviceRepository svcGroupDeviceRepository;
     private final SvcDeviceRepository svcDeviceRepository;

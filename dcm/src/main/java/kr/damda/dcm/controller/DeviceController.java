@@ -1,8 +1,8 @@
 package kr.damda.dcm.controller;
 
 import jakarta.validation.Valid;
-import kr.damda.dcm.dto.request.RegisterRequestDto;
-import kr.damda.dcm.dto.response.RegisterResponseDto;
+import kr.damda.dcm.dto.request.svc.RegisterRequestDto;
+import kr.damda.dcm.dto.response.svc.RegisterResponseDto;
 import kr.damda.dcm.service.DeviceService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

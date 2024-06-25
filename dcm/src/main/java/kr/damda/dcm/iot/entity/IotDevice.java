@@ -8,6 +8,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Index;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
+import kr.damda.dcm.dto.request.svc.component.DeviceRequestDto;
+import kr.damda.dcm.util.DeviceUtil;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -63,4 +65,19 @@ public class IotDevice extends BaseTimeEntity{
     private String manufactureId;
 
     private LocalDateTime registerTime;
+
+    public static IotDevice buildIotDevice(DeviceRequestDto deviceRequestDto,Long deviceModelId) {
+        DeviceUtil deviceUtil = new DeviceUtil();
+        IotDevice iotDevice = new IotDevice();
+        iotDevice.setDeviceId(deviceUtil.buildDeviceId(deviceRequestDto));
+        iotDevice.setConnStatus(0);
+        iotDevice.setDeviceModelId(deviceModelId);
+        iotDevice.setLocation(deviceRequestDto.getLocation());
+        iotDevice.setSubsNo("50abf12a0000001");
+        iotDevice.setManufacturer(deviceRequestDto.getMaker());
+        iotDevice.setModelName(deviceRequestDto.getModel());
+        iotDevice.setDataFormat("json");
+
+        return iotDevice;
+    }
 }

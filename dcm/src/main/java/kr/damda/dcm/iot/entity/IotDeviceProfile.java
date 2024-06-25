@@ -7,6 +7,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import kr.damda.dcm.dto.request.svc.component.DeviceRequestDto;
+import kr.damda.dcm.util.DeviceUtil;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -55,5 +57,16 @@ public class IotDeviceProfile extends BaseTimeEntity {
     @Column(name = "EXTRA", length = 128)
     private String extra;
 
+    public static IotDeviceProfile buildIotDeviceProfile(DeviceRequestDto deviceRequestDto) {
+        DeviceUtil deviceUtil = new DeviceUtil();
+        String deviceId = deviceUtil.buildDeviceId(deviceRequestDto);
+        IotDeviceProfile iotDeviceProfile = new IotDeviceProfile();
+        iotDeviceProfile.setSubsNo("50abf12a0000001");
+        iotDeviceProfile.setDeviceId(deviceId);
+        iotDeviceProfile.setDisplayImg(deviceId);
+        iotDeviceProfile.setDisplayName(deviceId);
+
+        return iotDeviceProfile;
+    }
 
 }

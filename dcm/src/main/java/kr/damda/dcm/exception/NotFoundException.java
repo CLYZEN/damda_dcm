@@ -1,5 +1,6 @@
 package kr.damda.dcm.exception;
 
+/* Svc Exception */
 public class NotFoundException extends RuntimeException {
 
     public NotFoundException(String message) {

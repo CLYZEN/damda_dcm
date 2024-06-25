@@ -1,6 +1,6 @@
 package kr.damda.dcm.util;
 
-import kr.damda.dcm.dto.request.component.DeviceRequestDto;
+import kr.damda.dcm.dto.request.svc.component.DeviceRequestDto;
 import org.springframework.stereotype.Component;
 
 @Component

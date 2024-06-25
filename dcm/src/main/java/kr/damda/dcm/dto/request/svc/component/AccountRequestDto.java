@@ -1,4 +1,4 @@
-package kr.damda.dcm.dto.request.component;
+package kr.damda.dcm.dto.request.svc.component;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;

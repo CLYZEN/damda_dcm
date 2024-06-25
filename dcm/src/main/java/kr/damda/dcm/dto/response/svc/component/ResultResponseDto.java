@@ -1,4 +1,4 @@
-package kr.damda.dcm.dto.response.component;
+package kr.damda.dcm.dto.response.svc.component;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
