@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface IotDeviceModelRepository extends JpaRepository<IotDeviceModel, Long> {
 
     IotDeviceModelProjection findByManufacturerAndModelName(String manufacturer, String modelName);
+
+
 }

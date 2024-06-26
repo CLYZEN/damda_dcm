@@ -9,4 +9,8 @@ public interface CertificateService {
     CreateKeysAndCertificateResponse attachKey(IotClient iotClient, String thingName);
 
     ArrayList<String> deleteKey(IotClient iotClient, String thingName);
+
+    void detachCertificate(IotClient iotClient, String deviceId, String certificateArn);
+
+    void deleteCertificate(IotClient iotClient, String certificateId);
 }

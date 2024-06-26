@@ -4,6 +4,11 @@ import software.amazon.awssdk.services.iot.IotClient;
 
 public interface PolicyService {
 
-    void createPolicyAndAttachToCertificate(IotClient iotClient, String policyName,
-        String policyDocument, String certificateArn);
+    String createPolicy(String deviceId, String deviceType, IotClient iotClient);
+
+    void attachPolicyToCertificate(String policyName, String certificateArn, IotClient iotClient);
+
+    void detachPolicyFromCertificate(String policyName, String certificateArn, IotClient iotClient);
+
+    void deletePolicy(String policyName, IotClient iotClient);
 }

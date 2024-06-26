@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import software.amazon.awssdk.services.iot.IotClient;
 import software.amazon.awssdk.services.iot.model.AttachThingPrincipalRequest;
+import software.amazon.awssdk.services.iot.model.CertificateStatus;
 import software.amazon.awssdk.services.iot.model.CreateKeysAndCertificateRequest;
 import software.amazon.awssdk.services.iot.model.CreateKeysAndCertificateResponse;
 import software.amazon.awssdk.services.iot.model.DeleteCertificateRequest;
@@ -82,5 +83,34 @@ public class CertificateServiceImpl implements CertificateService {
 
         log.info("Certificate Key Delete Finish");
         return certificateIdList;
+    }
+
+    public void detachCertificate(IotClient iotClient, String deviceId, String certificateArn) {
+        try {
+            DetachThingPrincipalRequest detachRequest = DetachThingPrincipalRequest.builder()
+                .thingName(deviceId)
+                .principal(certificateArn)
+                .build();
+            iotClient.detachThingPrincipal(detachRequest);
+        } catch (Exception e) {
+            log.error("Failed to detach certificate: {}", e.getMessage());
+        }
+    }
+
+    public void deleteCertificate(IotClient iotClient, String certificateId) {
+        try {
+            UpdateCertificateRequest updateRequest = UpdateCertificateRequest.builder()
+                .certificateId(certificateId)
+                .newStatus(CertificateStatus.INACTIVE)
+                .build();
+            iotClient.updateCertificate(updateRequest);
+
+            DeleteCertificateRequest deleteRequest = DeleteCertificateRequest.builder()
+                .certificateId(certificateId)
+                .build();
+            iotClient.deleteCertificate(deleteRequest);
+        } catch (Exception e) {
+            log.error("Failed to delete certificate: {}", e.getMessage());
+        }
     }
 }
